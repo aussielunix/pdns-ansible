@@ -10,9 +10,9 @@ jobs:
     strategy:
       matrix:
         ansible:
-          - '2.9'
           - '2.10'
           - '2.11'
+          - '2.12'
         scenario:
           - pdns-46
           - pdns-os-repos
