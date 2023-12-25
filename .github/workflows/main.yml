@@ -5,7 +5,7 @@ name: CI
   pull_request:
   push:
     branches:
-      - master
+      - 48
 defaults:
   run:
     working-directory: 'powerdns.pdns'
