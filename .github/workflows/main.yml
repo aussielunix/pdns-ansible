@@ -1,4 +1,5 @@
 ---
+
 on:
   push:
   pull_request:
@@ -6,17 +7,15 @@ on:
 jobs:
   Tests:
     name: Test role on different ansible versions
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     strategy:
       matrix:
         ansible:
-          - '2.9'
-          - '2.10'
-          - '2.11'
+          - '2.14'
+          - '2.16'
         scenario:
-          - pdns-43
-          - pdns-44
           - pdns-45
+          - pdns-48
           - pdns-master
           - pdns-os-repos
           - systemd-no-overrides

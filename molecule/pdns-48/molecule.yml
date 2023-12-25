@@ -1,7 +1,7 @@
 ---
 
 scenario:
-  name: pdns-44
+  name: pdns-48
 
 driver:
   name: docker
@@ -10,21 +10,6 @@ dependency:
   name: galaxy
 
 platforms:
-  - name: centos-7
-    groups: ["pdns"]
-    image: centos:7
-    dockerfile_tpl: centos-systemd
-
-  - name: centos-8
-    groups: ["pdns"]
-    image: centos:8
-    dockerfile_tpl: centos-systemd
-
-  - name: ubuntu-1804
-    groups: ["pdns"]
-    image: ubuntu:18.04
-    dockerfile_tpl: debian-systemd
-
   - name: ubuntu-2004
     groups: ["pdns"]
     image: ubuntu:20.04
@@ -33,9 +18,12 @@ platforms:
       - /tmp
     dockerfile_tpl: debian-systemd
 
-  - name: debian-9
+  - name: ubuntu-2204
     groups: ["pdns"]
-    image: debian:9
+    image: ubuntu:22.04
+    tmpfs:
+      - /run
+      - /tmp
     dockerfile_tpl: debian-systemd
 
   - name: debian-10
@@ -97,7 +85,7 @@ verifier:
   directory: ../resources/tests/all
   additional_files_or_dirs:
     # path relative to 'directory'
-    - ../repo-44/
+    - ../repo-48/
     - ../backend-sqlite/
     - ../backend-mysql/
     - ../systemd-override/
