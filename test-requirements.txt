@@ -1,4 +1,3 @@
-tox
 jinja2==2.11.3
 ansible-lint==5.0.7
 yamllint==1.26.1
