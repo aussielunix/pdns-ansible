@@ -5,9 +5,6 @@ dependency:
   name: galaxy
 driver:
   name: docker
-lint: |
-  set -e
-  ansible-lint
 platforms:
   - name: instance
     image: "geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2204}-ansible:latest"
@@ -31,7 +28,6 @@ scenario:
     - destroy
   test_sequence:
     - dependency
-    - lint
     - destroy
     - syntax
     - create

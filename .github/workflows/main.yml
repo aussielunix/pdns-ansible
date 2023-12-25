@@ -10,6 +10,23 @@ defaults:
   run:
     working-directory: 'powerdns.pdns'
 jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the codebase
+        uses: actions/checkout@v2
+        with:
+          path: 'powerdns.pdns'
+      - name: Set up Python 3
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install test dependencies.
+        run: pip3 install ansible-lint yamllint
+      - name: Lint code.
+        run: |
+          ansible-lint .
   molecule:
     name: Molecule
     runs-on: ubuntu-latest
@@ -29,7 +46,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install test dependencies.
-        run: pip3 install ansible-core ansible-lint molecule molecule-plugins[docker] molecule-plugins[lint] pytest-testinfra yamllint docker
+        run: pip3 install ansible-core molecule molecule-plugins[docker] molecule-plugins[lint] pytest-testinfra docker
 
       - name: Run Molecule tests.
         run: molecule test
