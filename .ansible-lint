@@ -14,15 +14,15 @@ offline: true
 enable_list:
   - yaml # Violations reported by yamllint
 
-#warn_list: []  # warn - great way to flag items that will need to be tidied up in the near future
-warn_list:
-  - key-order
-  - jinja
-  - schema
-  - name
-  - risky-file-permissions
-  - risky-shell-pipe
-  - fqcn
+warn_list: []  # warn - great way to flag items that will need to be tidied up in the near future
+#warn_list:
+#  - key-order
+#  - jinja
+#  - schema
+#  - name
+#  - risky-file-permissions
+#  - risky-shell-pipe
+#  - fqcn
 
 skip_list: []
 
