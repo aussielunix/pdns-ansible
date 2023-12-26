@@ -1,0 +1,32 @@
+---
+
+# min, basic, moderate,safety, shared, production
+profile: production
+
+use_default_rules: true
+strict: true
+parseable: true
+
+# Offline mode disables installation of requirements.yml and schema refreshing
+offline: true
+
+# enable any rules that are marked as optional
+enable_list:
+  - yaml # Violations reported by yamllint
+
+#warn_list: []  # warn - great way to flag items that will need to be tidied up in the near future
+warn_list:
+  - key-order
+  - jinja
+  - schema
+  - name
+  - risky-file-permissions
+  - risky-shell-pipe
+  - fqcn
+
+skip_list: []
+
+exclude_paths:
+  - molecule
+
+# vim: syntax=yaml:
