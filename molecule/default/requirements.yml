@@ -1,4 +1,9 @@
 ---
 
 roles:
-  - name: geerlingguy.mysql
+  - geerlingguy.mysql
+
+collections:
+  - community.general
+  - community.docker
+  - community.mysql
