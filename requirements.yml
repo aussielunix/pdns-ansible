@@ -1,4 +1,8 @@
 ---
+
+roles:
+  - name: geerlingguy.mysql
+
 collections:
   - name: community.mysql
   - name: community.general
