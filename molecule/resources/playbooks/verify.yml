@@ -1,0 +1,35 @@
+---
+
+- name: Verify
+  hosts: all
+  gather_facts: true
+  tasks:
+    - name: Prepare for dns tests
+      block:
+        - name: install dnsutils / dig
+          ansible.builtin.package:
+            name: " {{ dnsutils_package }}"
+            state: present
+          vars:
+            _dnsutils_package:
+              Debian: dnsutils
+            dnsutils_package: "{{ _dnsutils_package[ansible_os_family] }}"
+    - name: Test DNS A record creation
+      block:
+        - name: Create new dns zone - example.com
+          ansible.builtin.shell: pdnsutil create-zone example.com
+        - name: Create new dns A record - test1.example.com
+          ansible.builtin.shell: pdnsutil add-record example.com test1 A 300 10.0.0.1
+        - name: Restart pdns
+          ansible.builtin.systemd_service:
+            name: pdns.service
+            state: restarted
+        - name: Lookup dns A record - test1.example.com
+          ansible.builtin.command:
+            cmd: dig +short test1.example.com @127.0.0.1 -p 5300
+          changed_when: false
+          register: _dns_result
+        - name: Assert that dns A record exists and is correct
+          ansible.builtin.assert:
+            that:
+              - _dns_result.stdout == '10.0.0.1'

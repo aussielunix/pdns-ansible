@@ -23,6 +23,7 @@ provisioner:
   playbooks:
     prepare: ../resources/playbooks/prepare.yml
     converge: ../resources/playbooks/converge.yml
+    verify: ../resources/playbooks/verify.yml
 scenario:
   name: default
   destroy_sequence:
@@ -35,7 +36,7 @@ scenario:
     - create
     - prepare
     - converge
-#    - verify
+    - verify
     - destroy
 verifier:
   name: ansible

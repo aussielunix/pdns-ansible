@@ -16,7 +16,7 @@ mysql_users:
 pdns_config:
   api: true
   api-key: 'xyxyxyxyxyxy1@Xyxyxyxyxyxyxyxyxy'
-  local-address: '127.0.0.1:53'
+  local-address: '127.0.0.1:5300'
   webserver: true
   socket-dir: /run/pdns
 pdns_backends:
@@ -24,7 +24,7 @@ pdns_backends:
     host: 127.0.0.1
     port: 3306
     user: powerdns
-    password: xyxyxyxyxyxy1@Xyxyxyxyxyxyxyxyxy eerah5peivochefiethiesh4Eesheche
+    password: xyxyxyxyxyxy1@Xyxyxyxyxyxyxyxyxy
     dbname: pdns
 pdns_mysql_databases_credentials:
   gmysql:

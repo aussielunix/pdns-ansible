@@ -6,3 +6,4 @@ molecule-plugins[podman]
 molecule
 docker
 podman
+dnspython
