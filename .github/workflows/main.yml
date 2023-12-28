@@ -34,6 +34,10 @@ jobs:
     strategy:
       matrix:
         distro:
+          - debian10
+          - debian11
+          - debian12
+          - ubuntu2004
           - ubuntu2204
     steps:
       - name: Check out the codebase
