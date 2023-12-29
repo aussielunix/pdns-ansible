@@ -27,7 +27,6 @@ platforms:
       MYSQL_ROOT_PASSWORD: "xyxyxyxyxyxy1@Xyxyxyxyxyxyxyxyxy"
       MYSQL_ROOT_HOST: '%'
     network: 'pdns'
-    is_service: true
 provisioner:
   name: ansible
   log: ${MOLECULE_ANSIBLE_LOG:-True}
