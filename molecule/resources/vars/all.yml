@@ -2,17 +2,6 @@
 
 # PowerDNS Auth on localhost:53
 #
-mysql_root_password_update: true
-mysql_root_password: xyxyxyxyxyxy1@Xyxyxyxyxyxyxyxyxy
-mysql_databases:
-  - name: pdns-admin
-    encoding: utf8
-    collation: utf8_bin
-mysql_users:
-  - name: pdns-admin
-    host: "%"
-    password: xyxyxyxyxyxy1@Xyxyxyxyxyxyxyxyxy
-    priv: "pdns-admin.*:ALL"
 pdns_config:
   api: true
   api-key: 'xyxyxyxyxyxy1@Xyxyxyxyxyxyxyxyxy'
@@ -21,7 +10,7 @@ pdns_config:
   socket-dir: /run/pdns
 pdns_backends:
   gmysql:
-    host: 127.0.0.1
+    host: mysql
     port: 3306
     user: powerdns
     password: xyxyxyxyxyxy1@Xyxyxyxyxyxyxyxyxy
@@ -32,4 +21,5 @@ pdns_mysql_databases_credentials:
     priv_password: xyxyxyxyxyxy1@Xyxyxyxyxyxyxyxyxy
     priv_host:
       - "%"
+
 pdns_install_repo: "{{ pdns_auth_powerdns_repo_48 }}"

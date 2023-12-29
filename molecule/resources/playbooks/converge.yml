@@ -1,7 +1,7 @@
 ---
 
 - name: Converge
-  hosts: all
+  hosts: pdns
   become: true
   vars_files:
     - ../vars/all.yml

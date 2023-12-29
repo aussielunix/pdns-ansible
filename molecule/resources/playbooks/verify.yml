@@ -1,7 +1,7 @@
 ---
 
 - name: Verify
-  hosts: all
+  hosts: pdns
   gather_facts: true
   tasks:
     - name: Prepare for dns tests
@@ -24,6 +24,9 @@
           ansible.builtin.systemd_service:
             name: pdns.service
             state: restarted
+        - name: Pause for a small delay to allow dns server to start
+          ansible.builtin.pause:
+            seconds: 10
         - name: Lookup dns A record - test1.example.com
           ansible.builtin.command:
             cmd: dig +short test1.example.com @127.0.0.1 -p 5300

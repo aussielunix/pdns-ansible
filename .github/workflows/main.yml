@@ -49,11 +49,11 @@ jobs:
         with:
           python-version: '3.x'
       - name: Install python test dependencies
-        run: pip3 install -r test-requirements.txt #ansible molecule molecule-plugins[docker] docker
+        run: pip3 install -r test-requirements.txt
       - name: Run Molecule tests
         run: molecule test
         env:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
           MOLECULE_DISTRO: ${{ matrix.distro }}
-          MOLECULE_ANSIBLE_VERBOSITY: 1
+          MOLECULE_ANSIBLE_VERBOSITY: 0

@@ -1,7 +1,7 @@
 ---
 
 - name: Prepare Instance
-  hosts: all
+  hosts: pdns
   become: true
   vars_files:
     - ../vars/all.yml
@@ -9,5 +9,5 @@
     - name: Update apt cache.
       apt: update_cache=true cache_valid_time=600
       when: ansible_os_family == 'Debian'
-  roles:
-    - { role: geerlingguy.mysql }
+        #  roles:
+        #    - { role: geerlingguy.mysql }
