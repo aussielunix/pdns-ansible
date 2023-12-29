@@ -18,7 +18,7 @@ platforms:
     privileged: true
     pre_build_image: true
     groups: ["pdns"]
-    network: 'pdns'
+      #    network: 'pdns'
   - name: mysql
     image: docker.io/mysql/mysql-server:latest
     pre_build_image: true
@@ -26,7 +26,7 @@ platforms:
     env:
       MYSQL_ROOT_PASSWORD: "xyxyxyxyxyxy1@Xyxyxyxyxyxyxyxyxy"
       MYSQL_ROOT_HOST: '%'
-    network: 'pdns'
+        #    network: 'pdns'
     is_service: true
 provisioner:
   name: ansible
